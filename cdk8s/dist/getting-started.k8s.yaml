@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getting-started-my-deployment-c85252a6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - image: nginx:1.19.10
+          name: app-container-test
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: getting-started-my-sevice-c894014b
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: my-app
+  type: LoadBalancer
