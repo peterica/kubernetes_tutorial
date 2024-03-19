@@ -15,6 +15,7 @@ public class WebServices extends Chart {
         public WebServices(final Construct scope, final String id, final ChartProps props) {
                 super(scope, id, props);
 
+                // Template + Props를 결합 - 개별 클러스터 생성
                 new WebService(this, "hello", new WebServiceProps.Builder()
                                 .image("paulbouwer/hello-kubernetes:1.7")
                                 .replicas(2)
